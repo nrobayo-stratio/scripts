@@ -1,5 +1,5 @@
 # scripts
-scripts de ayuda
+script para obtener las las imagenes con tags que existen en un registry
 
 Modificar la url del registry a verificar (linea 27 del script):
 
