@@ -3,7 +3,7 @@ script para obtener las imagenes con tags que existen en un registry
 
 Modificar la url del registry a verificar (linea 27 del script):
 
-URL = "http://localhost:5001"
+URL = "http://localhost:5001/"
 
 Ejecución:
 
