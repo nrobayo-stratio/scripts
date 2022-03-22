@@ -24,7 +24,7 @@ import json
 
 
 # docker registry
-URL = "http://localhost:5001"
+URL = "http://localhost:5001/"
 
 
 r = requests.get(url = URL + "/v2/_catalog?n=1000", verify=False) 
