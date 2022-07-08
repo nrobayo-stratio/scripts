@@ -16,7 +16,7 @@ EOF
 
 # construcción
 
-docker build -t cliente-oracle-ops:v1
+docker build -t cliente-oracle-ops:v1 .
 
 # Ejecución contenedor:
 
