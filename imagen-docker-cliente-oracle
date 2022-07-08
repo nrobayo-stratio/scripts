@@ -1,0 +1,45 @@
+# Dockerfile
+cat > Dockerfile<<EOF 
+FROM oraclelinux:7-slim
+
+ARG release=19
+ARG update=6
+
+RUN  yum -y install oracle-release-el7 && \
+     yum-config-manager --enable ol7_oracle_instantclient && \
+     yum -y install oracle-instantclient${release}.${update}-basic \
+        oracle-instantclient${release}.${update}-sqlplus && \
+     rm -rf /var/cache/yum
+
+CMD ["sqlplus", "-v"]
+EOF
+
+# construcción
+
+docker build -t cliente-oracle-ops:v1
+
+# Ejecución contenedor:
+
+docker run -it --entrypoint /bin/sh cliente-oracle-ops:v1
+
+# conexión sqlplus user@server:<puerto>/<db> (ejemplo)
+
+sqlplus datacentric@10.205.100.29:1521/LINIX
+
+# resultado ejemplo:
+
+SQL> select A_OBLIGA from CA090MGSOLCRED  where ROWNUM <= 5;
+
+A_OBLIGA
+------------
+141000446
+141000447
+141000448
+141000449
+141000450
+
+SQL> select sysdate from dual;
+
+SYSDATE
+---------
+08-JUL-22
